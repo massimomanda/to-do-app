@@ -1,7 +1,13 @@
 <div class="container">
-    <h2>Completed Tasks</h2>
-  <app-task
+  <h2>Completed Tasks</h2>
+  <div *ngIf="taskService.completedTasks.length != 0">
+    <app-task
     *ngFor="let t of taskService.completedTasks"
     [taskText]="t.text"
   ></app-task>
+  </div>
+
+  <div class="not-found" *ngIf="taskService.completedTasks.length === 0">
+    <h4>No Completed Tasks</h4>
+  </div>
 </div>

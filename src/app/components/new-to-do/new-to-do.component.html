@@ -1,5 +1,5 @@
 <div>
-  <form [formGroup]="form" (ngSubmit)="addTask()">
+  <form [formGroup]="form" (ngSubmit)="addTask($event)">
     <input
       name="input"
       [placeholder]="'Your task'"

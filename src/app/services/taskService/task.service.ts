@@ -6,9 +6,11 @@ import { Injectable } from '@angular/core';
 export class TaskService {
   constructor() {}
   tasks: any = [
-    { category: 'Life', text: 'ciao', checked: false },
-    { category: 'Work', text: 'come va?', checked: false },
+    { category: 'Life', text: 'ciao'},
+    { category: 'Work', text: 'come va?'},
   ];
+
+  formVisible = false;
 
   completedTasks: any = [];
 
@@ -18,15 +20,15 @@ export class TaskService {
   categories: any = [
     {
       name: 'All',
-      color: 'blue',
+      color: '#457b9d',
       tasksLength: this.tasks.length,
     },
     {
       name: 'Life',
-      color: 'red',
+      color: '#8ecae6',
       tasksLength: this.lifeTasks.length,
     },
-    { name: 'Work', color: 'yellow', tasksLength: this.workTasks.length },
+    { name: 'Work', color: '#ffcdb2', tasksLength: this.workTasks.length },
   ];
 
   checked = false;

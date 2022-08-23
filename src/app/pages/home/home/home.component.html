@@ -1,10 +1,10 @@
 <div appThemetoggle class="wrapper">
   <div class="container">
     <app-kebab [routerLink]="'/completed-tasks'"></app-kebab>
-    <h5>What Up, Kenny!</h5>
-    <h2 >Categories</h2>
+    <h2 class="text-spacing">What Up, Kenny!</h2>
+    <h5 class="text-spacing">CATEGORIES</h5>
   </div>
-  <div class="categories-container">
+  <div class="categories-container scrollbar-hidden">
     <app-category
       [categoryName]="c.name"
       [backgroundColor]="c.color"
@@ -13,7 +13,7 @@
       (click)="goToDetails(c.name)"
     ></app-category>
   </div>
-  <h2>YOUR MIND</h2>
+  <h5 class="text-spacing">YOUR MIND</h5>
   <app-task
     *ngFor="let t of taskService.tasks; index as i"
     [taskText]="taskService.tasks[i].text" (click)="taskService.checkTask(i)"

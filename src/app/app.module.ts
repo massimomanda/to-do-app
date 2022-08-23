@@ -11,6 +11,7 @@ import { NewToDoComponent } from './components/new-to-do/new-to-do.component';
 import { DetailsComponent } from './pages/details/details.component';
 import { HomeComponent } from './pages/home/home/home.component';
 import { CompletedTasksComponent } from './pages/completed-tasks/completed-tasks.component';
+import { ThemetoggleDirective } from './directives/themetoggle.directive';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { CompletedTasksComponent } from './pages/completed-tasks/completed-tasks
     NewToDoComponent,
     DetailsComponent,
     HomeComponent,
-    CompletedTasksComponent
+    CompletedTasksComponent,
+    ThemetoggleDirective
   ],
   imports: [
     BrowserModule,

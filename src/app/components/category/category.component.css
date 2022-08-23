@@ -1,15 +1,14 @@
-.button{
-    width: 8rem;
-    height: 5rem;
+.button {
+  width: 8rem;
+  height: 5rem;
 
-    /* padding: 2rem 2.5rem; */
-    /* min-width: 2rem; */
-    /* background-color: blue; */
-    border-radius: 15px;
-    
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
-    
+  /* padding: 2rem 2.5rem; */
+  /* min-width: 2rem; */
+  /* background-color: blue; */
+  border-radius: 15px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

@@ -1,0 +1,7 @@
+<div class="container">
+    <h2>Completed Tasks</h2>
+  <app-task
+    *ngFor="let t of taskService.completedTasks"
+    [taskText]="t.text"
+  ></app-task>
+</div>

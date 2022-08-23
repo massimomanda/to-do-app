@@ -10,6 +10,7 @@
       [backgroundColor]="c.color"
       [tasksNumber]="c.tasksLength"
       *ngFor="let c of taskService.categories"
+      (click)="goToDetails(c.name)"
     ></app-category>
   </div>
   <h2>YOUR MIND</h2>

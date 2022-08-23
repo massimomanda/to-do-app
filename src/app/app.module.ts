@@ -8,6 +8,9 @@ import { CategoryComponent } from './components/category/category.component';
 import { TaskComponent } from './components/task/task.component';
 import { ThemeSwitchComponent } from './components/theme-switch/theme-switch.component';
 import { NewToDoComponent } from './components/new-to-do/new-to-do.component';
+import { DetailsComponent } from './pages/details/details.component';
+import { HomeComponent } from './pages/home/home/home.component';
+import { CompletedTasksComponent } from './pages/completed-tasks/completed-tasks.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +19,10 @@ import { NewToDoComponent } from './components/new-to-do/new-to-do.component';
     CategoryComponent,
     TaskComponent,
     ThemeSwitchComponent,
-    NewToDoComponent
+    NewToDoComponent,
+    DetailsComponent,
+    HomeComponent,
+    CompletedTasksComponent
   ],
   imports: [
     BrowserModule,

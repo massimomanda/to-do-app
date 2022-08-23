@@ -9,6 +9,7 @@ export class CategoryComponent implements OnInit {
 
   @Input('categoryName') categoryName!:string
   @Input('backgroundColor') backgroundColor!:string
+  @Input('tasksNumber') tasksNumber!: number;
   constructor() { }
 
   ngOnInit(): void {

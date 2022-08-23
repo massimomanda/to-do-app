@@ -28,6 +28,10 @@ export class DetailsComponent implements OnInit {
       this.work = this.TaskService.tasks.filter((t: any) => t.category === 'Work')
       this.selectedArray = this.work
     }
-  }
 
+  }
+  
+  addTask(){
+    
+  }
 }

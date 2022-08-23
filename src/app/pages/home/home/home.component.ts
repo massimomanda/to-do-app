@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TaskService } from 'src/app/services/taskService/task.service';
+import { ThemetoggleDirective } from 'src/app/directives/themetoggle.directive';
 
 @Component({
   selector: 'app-home',

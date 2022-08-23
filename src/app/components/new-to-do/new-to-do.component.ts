@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-new-to-do',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewToDoComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _fb:FormBuilder) { }
 
   ngOnInit(): void {
   }
+   form = new FormGroup({
+    input: new FormControl(''),
+    select: new FormControl(''),
+  });
+  
+  addTask(){
 
+    console.log(this.form.value)
+  }
 }

@@ -12,6 +12,7 @@ import { DetailsComponent } from './pages/details/details.component';
 import { HomeComponent } from './pages/home/home/home.component';
 import { CompletedTasksComponent } from './pages/completed-tasks/completed-tasks.component';
 import { ThemetoggleDirective } from './directives/themetoggle.directive';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,9 @@ import { ThemetoggleDirective } from './directives/themetoggle.directive';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

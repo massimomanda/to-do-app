@@ -29,5 +29,8 @@ export class NewToDoComponent implements OnInit {
     this.taskService.formVisible = false;
     this.taskService.tasks.push(newTodo);
     this.newTaskAdded.emit(e);
+    this.taskService.updateTasks()
+    console.log(this.taskService.categories);
+    console.log(this.taskService.tasks);
   }
 }

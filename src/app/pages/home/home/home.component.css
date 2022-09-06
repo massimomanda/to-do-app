@@ -17,9 +17,29 @@
 }
 
 h5 {
-    align-self: flex-start;
+  align-self: flex-start;
 }
 
 .wrapper {
-  height: 100vh;
+  height: 100%;
+}
+
+.theme-toggle {
+  font-size: 1.5rem;
+  color: #2c2c2c;
+}
+
+
+
+.title {
+    /* text-align: left; */
+    align-self: flex-start;
+}
+
+.subtitle {
+    color: rgb(113, 113, 113);
+}
+
+.hamburger-icon {
+    font-size: 1.5rem;
 }

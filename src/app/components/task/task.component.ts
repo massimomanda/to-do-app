@@ -8,6 +8,7 @@ import { TaskService } from 'src/app/services/taskService/task.service';
 })
 export class TaskComponent implements OnInit {
   @Input('taskText') taskText!: string;
+  @Input('index') index!: number;
 
   constructor(public taskService: TaskService) {}
 

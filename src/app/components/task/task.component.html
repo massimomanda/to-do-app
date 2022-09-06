@@ -1,3 +1,3 @@
 <div class="todo-wrapper">
-    <input type="checkbox" > <span>&nbsp; {{ taskText }}</span>
+    <input type="checkbox" (click)="taskService.checkTask(index)"> <span>&nbsp; {{ taskText }}</span>
 </div>

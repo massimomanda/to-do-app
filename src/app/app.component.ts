@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TaskService } from './services/taskService/task.service';
 
 @Component({
   selector: 'app-root',
@@ -16,7 +17,7 @@ export class AppComponent implements OnInit {
   lifeTasks = this.tasks.filter((t: any) => t.category === 'Life');
   workTasks = this.tasks.filter((t: any) => t.category === 'Work');
 
-  constructor() {}
+  constructor(public taskService: TaskService) {}
   categories: any = [
     {
       name: 'All',
@@ -30,5 +31,7 @@ export class AppComponent implements OnInit {
     },
     { name: 'Work', color: 'yellow', tasksLength: this.workTasks.length },
   ];
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    
+  }
 }

@@ -5,33 +5,48 @@ import { TaskService } from 'src/app/services/taskService/task.service';
 @Component({
   selector: 'app-details',
   templateUrl: './details.component.html',
-  styleUrls: ['./details.component.css']
+  styleUrls: ['./details.component.css'],
 })
 export class DetailsComponent implements OnInit {
-
-  work:any = [];
-  life:any = [];
-  all:any = [];
+  work: any = [];
+  life: any = [];
+  all: any = [];
   selectedArray: any;
+  receivedText!: string;
+  editMode: boolean = false;
 
-  constructor(private router: Router, private TaskService: TaskService) { }
+  constructor(private router: Router, public TaskService: TaskService) {}
 
   ngOnInit(): void {
-
-    if (this.router.url.includes('All')) {
-      this.all = this.TaskService.tasks
-      this.selectedArray = this.all
-    } else if (this.router.url.includes('Life')) {
-      this.life = this.TaskService.tasks.filter((t: any) => t.category === 'Life')
-      this.selectedArray = this.life
-    } else if (this.router.url.includes('Work')) {
-      this.work = this.TaskService.tasks.filter((t: any) => t.category === 'Work')
-      this.selectedArray = this.work
-    }
-
+    this.getCategoryArray();
   }
-  
-  addTask(){
-    
+
+  getCategoryArray() {
+    if (this.router.url.includes('All')) {
+      this.all = this.TaskService.tasks;
+      this.selectedArray = this.all;
+    } else if (this.router.url.includes('Life')) {
+      this.life = this.TaskService.tasks.filter(
+        (t: any) => t.category === 'Life'
+      );
+      this.selectedArray = this.life;
+    } else if (this.router.url.includes('Work')) {
+      this.work = this.TaskService.tasks.filter(
+        (t: any) => t.category === 'Work'
+      );
+      this.selectedArray = this.work;
+    }
+  }
+
+  onNewTaskAdded() {
+    this.getCategoryArray();
+  }
+
+  onEditEmitter(e: any) {
+    this.editMode = true;
+    console.log(e);
+    this.TaskService.formVisible = true;
+    this.receivedText = e.text;
+    console.log('array', this.selectedArray, 'testo emit', this.receivedText)
   }
 }

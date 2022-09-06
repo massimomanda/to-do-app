@@ -1,3 +1,12 @@
-<div>
-    <input type="checkbox" > <span>&nbsp; {{ taskText }}</span>
+<div class="todo-wrapper">
+  <div>
+    <input type="checkbox" (click)="taskService.checkTask(index)" />
+    <span>&nbsp; {{ taskText }}</span>
+  </div>
+  <div>
+    {{category}}
+  </div>
+  <button (click)="edit(taskText, category)">
+    EDIT
+  </button>
 </div>

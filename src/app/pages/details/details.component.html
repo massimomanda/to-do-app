@@ -1,10 +1,18 @@
 <div>
-  <app-task *ngFor="let t of selectedArray" [taskText]="t.text"></app-task>
+  <app-task
+    *ngFor="let t of selectedArray; index as i"
+    [taskText]="t.text"
+    [category]="t.category"
+    (editEmitter)="onEditEmitter($event)"
+    [index]="i"
+  ></app-task>
 </div>
-<app-new-to-do *ngIf="TaskService.formVisible" (newTaskAdded)="onNewTaskAdded()"></app-new-to-do>
-<div class="add-button" (click)="addTask()">
+<app-new-to-do
+  *ngIf="TaskService.formVisible"
+  (newTaskAdded)="onNewTaskAdded()"
+></app-new-to-do>
+<div class="add-button" (click)="TaskService.formVisible = true">
   <svg
-    (click)="TaskService.formVisible = true"
     version="1.1"
     id="Layer_1"
     xmlns="http://www.w3.org/2000/svg"

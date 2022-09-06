@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { TaskService } from 'src/app/services/taskService/task.service';
 
 @Component({
@@ -13,12 +13,18 @@ export class DetailsComponent implements OnInit {
   all: any = [];
   selectedArray: any;
   receivedText!: string;
-  editMode: boolean = false;
 
-  constructor(private router: Router, public TaskService: TaskService) {}
+  currentCategory: any = this.route.snapshot.paramMap.get('category');
+
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    public TaskService: TaskService
+  ) {}
 
   ngOnInit(): void {
     this.getCategoryArray();
+    console.log(this.router.url);
   }
 
   getCategoryArray() {
@@ -42,11 +48,13 @@ export class DetailsComponent implements OnInit {
     this.getCategoryArray();
   }
 
-  onEditEmitter(e: any) {
-    this.editMode = true;
-    console.log(e);
+  onEditEmitter(task: any) {
+    // variabile per attivare la modalitá di editing del task
+    this.TaskService.editMode = true;
+
     this.TaskService.formVisible = true;
-    this.receivedText = e.text;
-    console.log('array', this.selectedArray, 'testo emit', this.receivedText)
+    this.receivedText = task.text;
+    console.log('task', task);
+    this.TaskService.currentEditTask = task;
   }
 }

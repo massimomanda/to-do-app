@@ -1,6 +1,11 @@
 <div>
+  <div>
+    <h2>
+      {{ currentCategory }}
+    </h2>
+  </div>
   <app-task
-    *ngFor="let t of selectedArray; index as i"
+    *ngFor="let t of TaskService.tasks; index as i"
     [taskText]="t.text"
     [category]="t.category"
     (editEmitter)="onEditEmitter($event)"
@@ -11,6 +16,7 @@
   *ngIf="TaskService.formVisible"
   (newTaskAdded)="onNewTaskAdded()"
 ></app-new-to-do>
+<!-- tasto piu` per aggiungere i task -->
 <div class="add-button" (click)="TaskService.formVisible = true">
   <svg
     version="1.1"

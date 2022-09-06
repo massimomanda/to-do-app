@@ -12,11 +12,23 @@ export class NewToDoComponent implements OnInit {
 
   @Output('newTaskAdded') newTaskAdded = new EventEmitter();
 
-  ngOnInit(): void {}
   form = new FormGroup({
     input: new FormControl(''),
     select: new FormControl(''),
   });
+  ngOnInit(): void {
+    this.makeEditForm();
+  }
+
+  makeEditForm() {
+    // deve uscire solo se c`e` l`edit
+    if (this.taskService.editMode) {
+      this.form.setValue({
+        input: this.taskService.currentEditTask.text,
+        select: this.taskService.currentEditTask.category,
+      });
+    }
+  }
 
   addTask(e: any) {
     console.log(this.form.value);
@@ -25,12 +37,16 @@ export class NewToDoComponent implements OnInit {
       category: this.form.value.select,
       text: this.form.value.input,
     };
+    if (this.taskService.editMode == false) {
+      this.taskService.formVisible = false;
 
-    this.taskService.formVisible = false;
-    this.taskService.tasks.push(newTodo);
-    this.newTaskAdded.emit(e);
-    this.taskService.updateTasks()
-    console.log(this.taskService.categories);
-    console.log(this.taskService.tasks);
+      this.taskService.tasks.push(newTodo);
+      this.newTaskAdded.emit(e);
+      this.taskService.updateTasks();
+      console.log(this.taskService.categories);
+      console.log(this.taskService.tasks);
+    } else {
+      this.taskService.formVisible = false;
+    }
   }
 }

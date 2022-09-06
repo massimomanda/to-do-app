@@ -17,8 +17,8 @@ export class TaskComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  edit(text: string, category: string) {
-    this.editEmitter.emit({text: text, category: category });
-
+  // tasto edit emitta cose
+  edit(text: string, category: string, event: any) {
+    this.editEmitter.emit({ text: text, category: category, event });
   }
 }

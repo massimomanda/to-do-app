@@ -6,19 +6,16 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
+  constructor(public taskService: TaskService, private router: Router) {}
 
-  constructor(public taskService: TaskService, private router:Router) {}
+  ngOnInit(): void {}
 
-  ngOnInit(): void {
-
-  }
-
-  goToDetails(c:any){
-   this.router.navigate([`/details/${c}`])
-   console.log(c)
-
+  // va ai details e si porta dietro c.name
+  goToDetails(c: any) {
+    this.router.navigate([`/details/${c}`]);
+    console.log(c);
   }
 }

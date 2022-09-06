@@ -4,9 +4,7 @@
     <span>&nbsp; {{ taskText }}</span>
   </div>
   <div>
-    {{category}}
+    {{ category }}
   </div>
-  <button (click)="edit(taskText, category)">
-    EDIT
-  </button>
+  <button (click)="edit(taskText, category, $event)">EDIT</button>
 </div>

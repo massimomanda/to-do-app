@@ -5,18 +5,28 @@ import { Injectable } from '@angular/core';
 })
 export class TaskService {
   constructor() {}
+
+  // task da modificare
+  currentEditTask: any;
+  // flag pe visuallizzare la modalitá modifica
+  editMode: boolean = false;
+
+  // struttura dati principale dei tasks
   tasks: any = [
     { category: 'Life', text: 'ciao' },
     { category: 'Work', text: 'come va?' },
   ];
 
+  // rende visibile il form per l`inserimento dei task
   formVisible = false;
 
   completedTasks: any = [];
 
+  // crea un array specifico in base alla categoria
   lifeTasks = this.tasks.filter((t: any) => t.category === 'Life');
   workTasks = this.tasks.filter((t: any) => t.category === 'Work');
 
+  // categorie di default da leggere all`avvio
   categories: any = [
     {
       name: 'All',
@@ -32,7 +42,7 @@ export class TaskService {
   ];
 
   checked = false;
-
+  // mette i task nei task completati
   checkTask(e: any) {
     this.checked = true;
     console.log(e);

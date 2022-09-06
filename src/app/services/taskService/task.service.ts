@@ -1,10 +1,13 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
 })
 export class TaskService {
-  constructor() {}
+  constructor(private router: Router) {}
+
+  selectedArray: any;
   tasks: any = [
     { category: 'Life', text: 'ciao' },
     { category: 'Work', text: 'come va?' },
@@ -36,10 +39,18 @@ export class TaskService {
   checkTask(e: any) {
     this.checked = true;
     console.log(e);
-
-    this.completedTasks.push(this.tasks[e]);
-
-    this.tasks.splice(e, 1);
+    if (this.router.url.includes('All') || this.router.url.includes('home')) {
+      this.completedTasks.push(this.tasks[e]);
+      this.tasks.splice(e, 1);
+      this.updateTasks();
+    } else if (
+      this.router.url.includes('Life') ||
+      this.router.url.includes('Work')
+    ) {
+      this.completedTasks.push(this.tasks[e]); // per categoria
+      this.selectedArray.splice(e, 1); // per categoria
+      this.updateTasks();
+    }
 
     console.log(this.tasks, 'da fare');
     console.log(this.completedTasks, 'fatti');

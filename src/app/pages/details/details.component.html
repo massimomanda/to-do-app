@@ -1,9 +1,13 @@
 <div>
+  <div>
+    <h2>
+      {{ currentCategory }}
+    </h2>
+  </div>
   <app-task
-    *ngFor="let t of selectedArray; index as i"
+    *ngFor="let t of this.TaskService.selectedArray; index as i"
     [taskText]="t.text"
     [category]="t.category"
-    (editEmitter)="onEditEmitter($event)"
     [index]="i"
   ></app-task>
 </div>
@@ -43,7 +47,7 @@
       <path
         style="fill: #eeffff"
         d="M248,364c-6.4,0-8-4.8-8-12V143.2c0-6.4,1.6-12,8-12s8,4.8,8,12v209.6C256,359.2,254.4,364,248,364z
-            "
+      "
       />
     </g>
     <g></g>
@@ -63,3 +67,5 @@
     <g></g>
   </svg>
 </div>
+
+<!-- (editEmitter)="onEditEmitter($event)" -->

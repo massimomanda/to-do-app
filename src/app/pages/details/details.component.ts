@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { TaskService } from 'src/app/services/taskService/task.service';
 
 @Component({
@@ -15,7 +15,12 @@ export class DetailsComponent implements OnInit {
   receivedText!: string;
   editMode: boolean = false;
 
-  constructor(private router: Router, public TaskService: TaskService) {}
+  constructor(
+    private router: Router,
+    public TaskService: TaskService,
+    private route: ActivatedRoute
+  ) {}
+  currentCategory: any = this.route.snapshot.paramMap.get('category');
 
   ngOnInit(): void {
     this.getCategoryArray();
@@ -24,17 +29,17 @@ export class DetailsComponent implements OnInit {
   getCategoryArray() {
     if (this.router.url.includes('All')) {
       this.all = this.TaskService.tasks;
-      this.selectedArray = this.all;
+      this.TaskService.selectedArray = this.all;
     } else if (this.router.url.includes('Life')) {
       this.life = this.TaskService.tasks.filter(
         (t: any) => t.category === 'Life'
       );
-      this.selectedArray = this.life;
+      this.TaskService.selectedArray = this.life;
     } else if (this.router.url.includes('Work')) {
       this.work = this.TaskService.tasks.filter(
         (t: any) => t.category === 'Work'
       );
-      this.selectedArray = this.work;
+      this.TaskService.selectedArray = this.work;
     }
   }
 
@@ -42,11 +47,11 @@ export class DetailsComponent implements OnInit {
     this.getCategoryArray();
   }
 
-  onEditEmitter(e: any) {
-    this.editMode = true;
-    console.log(e);
-    this.TaskService.formVisible = true;
-    this.receivedText = e.text;
-    console.log('array', this.selectedArray, 'testo emit', this.receivedText)
-  }
+  // onEditEmitter(e: any) {
+  //   this.editMode = true;
+  //   console.log(e);
+  //   this.TaskService.formVisible = true;
+  //   this.receivedText = e.text;
+  //   console.log('array', this.selectedArray, 'testo emit', this.receivedText);
+  // }
 }

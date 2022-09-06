@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { TaskService } from 'src/app/services/taskService/task.service';
 
 @Component({
@@ -17,8 +18,7 @@ export class TaskComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  edit(text: string, category: string) {
-    this.editEmitter.emit({text: text, category: category });
-
-  }
+  // edit(text: string, category: string) {
+  //   this.editEmitter.emit({ text: text, category: category });
+  // }
 }

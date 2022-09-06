@@ -4,13 +4,22 @@
       {{ currentCategory }}
     </h2>
   </div>
-  <app-task
-    *ngFor="let t of TaskService.tasks; index as i"
-    [taskText]="t.text"
-    [category]="t.category"
-    (editEmitter)="onEditEmitter($event)"
-    [index]="i"
-  ></app-task>
+  <div *ngFor="let t of TaskService.tasks; index as i">
+    <app-task
+      *ngIf="t.category == currentCategory"
+      [taskText]="t.text"
+      [category]="t.category"
+      (editEmitter)="onEditEmitter($event)"
+      [index]="i"
+    ></app-task>
+    <app-task
+      *ngIf="router.url.includes('All')"
+      [taskText]="t.text"
+      [category]="t.category"
+      (editEmitter)="onEditEmitter($event)"
+      [index]="i"
+    ></app-task>
+  </div>
 </div>
 <app-new-to-do
   *ngIf="TaskService.formVisible"

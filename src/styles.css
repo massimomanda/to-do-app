@@ -6,7 +6,7 @@
   margin: 0;
   box-sizing: border-box;
   font-family: "Noto Sans Avestan", sans-serif;
-  /* transition: all 0.4s ease-in-out; */
+  transition: all 0.09s linear;
 }
 
 html body {
@@ -14,7 +14,7 @@ html body {
 }
 
 body {
-    height: 100vh;
+  height: 100vh;
 }
 
 .whitemode {
@@ -31,7 +31,7 @@ body.blackmode .todo-wrapper {
 }
 
 body.blackmode .theme-toggle {
-    color: white;
+  color: white;
 }
 
 .text-spacing {

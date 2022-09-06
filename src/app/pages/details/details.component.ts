@@ -17,7 +17,7 @@ export class DetailsComponent implements OnInit {
   currentCategory: any = this.route.snapshot.paramMap.get('category');
 
   constructor(
-    private router: Router,
+    public router: Router,
     private route: ActivatedRoute,
     public TaskService: TaskService
   ) {}

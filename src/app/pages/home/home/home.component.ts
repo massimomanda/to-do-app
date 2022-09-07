@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit {
   // va ai details e si porta dietro c.name
   goToDetails(c: any) {
     this.router.navigate([`/details/${c}`]);
-    console.log(c);
+
   }
   onDeleteEmitter(i:any){
     this.taskService.deleteTask(i)

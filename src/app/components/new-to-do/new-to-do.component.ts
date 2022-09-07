@@ -1,5 +1,10 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { TaskService } from 'src/app/services/taskService/task.service';
 
 @Component({
@@ -13,8 +18,8 @@ export class NewToDoComponent implements OnInit {
   @Output('newTaskAdded') newTaskAdded = new EventEmitter();
 
   form = new FormGroup({
-    input: new FormControl(''),
-    select: new FormControl(''),
+    input: new FormControl('', [Validators.required]),
+    select: new FormControl('', [Validators.required]),
   });
   ngOnInit(): void {
     this.makeEditForm();
@@ -31,8 +36,6 @@ export class NewToDoComponent implements OnInit {
   }
 
   addTask(e: any) {
-    console.log(this.form.value);
-
     let newTodo = {
       category: this.form.value.select,
       text: this.form.value.input,
@@ -43,12 +46,10 @@ export class NewToDoComponent implements OnInit {
       this.taskService.tasks.push(newTodo);
       this.newTaskAdded.emit(e);
       this.taskService.updateTasks();
-      console.log(this.taskService.categories);
-      console.log(this.taskService.tasks);
     } else {
       this.taskService.formVisible = false;
-      this.taskService.editTask( this.taskService.currentEditTask.i, newTodo)
-      this.taskService.updateTasks()
+      this.taskService.editTask(this.taskService.currentEditTask.i, newTodo);
+      this.taskService.updateTasks();
       this.taskService.editMode = false;
     }
   }

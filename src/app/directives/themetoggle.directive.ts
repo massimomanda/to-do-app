@@ -11,8 +11,7 @@ export class ThemetoggleDirective implements OnInit {
 
   constructor() {}
   ngOnInit(): void {
-    // console.log(this.backgroundColor)
-    console.log(this.body);
+
   }
   @HostListener('click') onclick(eventData: Event) {
     if (this.body[0].classList.contains('whitemode')) {
@@ -23,6 +22,6 @@ export class ThemetoggleDirective implements OnInit {
       this.body[0].classList.add('whitemode');
     }
 
-    // console.log('funziono')
+
   }
 }

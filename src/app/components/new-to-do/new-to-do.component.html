@@ -1,4 +1,4 @@
-<div>
+<div class="wrapper">
   <div (click)="taskService.formVisible = false" class="overlay"></div>
   <form [formGroup]="form" (ngSubmit)="addTask($event)">
     <input
@@ -11,6 +11,6 @@
       <option value="Work">Work</option>
       <option value="Life">Life</option>
     </select>
-    <button type="submit">invia</button>
+    <button type="submit" [disabled]="form.invalid">invia</button>
   </form>
 </div>

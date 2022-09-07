@@ -24,7 +24,7 @@ export class DetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getCategoryArray();
-    console.log(this.router.url);
+
   }
 
   getCategoryArray() {
@@ -51,12 +51,12 @@ export class DetailsComponent implements OnInit {
   onEditEmitter(task: any, i: any) {
     // variabile per attivare la modalitá di editing del task
     this.TaskService.editMode = true;
-    // console.log(i)
+
     this.TaskService.formVisible = true;
     // this.receivedText = task.text;
-    console.log('task', task);
+
     this.TaskService.currentEditTask ={ task: task, i: i};
-    console.log(this.TaskService.currentEditTask )
+
 
   }
 

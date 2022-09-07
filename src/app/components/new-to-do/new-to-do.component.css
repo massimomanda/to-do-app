@@ -29,13 +29,18 @@ form {
     border-radius: 15px;
     z-index: 100;
     background-color: white;
-    position: relative;
+    position: absolute;
+    margin: auto;
 }
 .overlay{
     width: 100vw;
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.11);
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
+}
+
+.wrapper{
+    position: relative;
 }

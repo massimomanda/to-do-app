@@ -45,14 +45,13 @@ export class TaskService {
   // mette i task nei task completati
   checkTask(e: any) {
     this.checked = true;
-    console.log(e);
+
 
     this.completedTasks.push(this.tasks[e]);
 
     this.tasks.splice(e, 1);
 
-    console.log(this.tasks, 'da fare');
-    console.log(this.completedTasks, 'fatti');
+
     this.updateTasks();
   }
 
@@ -77,7 +76,7 @@ export class TaskService {
 
   editTask(i:any, obj:any){
      this.tasks.splice(i, 1, obj)
-     console.log(this.tasks)
+
   }
   deleteTask(i: any){
     this.tasks.splice(i, 1)

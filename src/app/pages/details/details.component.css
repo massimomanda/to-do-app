@@ -1,0 +1,14 @@
+svg {
+  width: 4rem;
+  height: 4rem;
+}
+
+.add-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 1.5rem;
+}
+h2 {
+  text-align: center;
+}

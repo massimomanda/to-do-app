@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { TaskService } from 'src/app/services/taskService/task.service';
 
 @Component({
@@ -8,8 +8,17 @@ import { TaskService } from 'src/app/services/taskService/task.service';
 })
 export class TaskComponent implements OnInit {
   @Input('taskText') taskText!: string;
+  @Input('index') index!: number;
+  @Input('category') category!: string;
+  @Input('categoryColor') categoryColor!: string;
+  @Output('editEmitter') editEmitter = new EventEmitter();
 
   constructor(public taskService: TaskService) {}
 
   ngOnInit(): void {}
+
+  // tasto edit emitta cose
+  edit(text: string, category: string, event: any) {
+    this.editEmitter.emit({ text: text, category: category, event });
+  }
 }

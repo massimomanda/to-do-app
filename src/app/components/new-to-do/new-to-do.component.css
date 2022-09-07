@@ -1,0 +1,30 @@
+input {
+    border-radius: 15px;
+    padding: 0.8rem 2rem;
+    border: 1px solid rgb(197, 197, 197);
+}
+
+select {
+    border-radius: 15px;
+    padding: 0.8rem 2rem;
+    border: 1px solid rgb(197, 197, 197);
+}
+
+button {
+    border-radius: 15px;
+    padding: 0.6rem 2rem;
+    border: 1px solid rgb(197, 197, 197);
+    background-color: #00d8bb;
+}
+
+form {
+    padding: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    border: 1px solid lightgray;
+    border-radius: 15px;
+}

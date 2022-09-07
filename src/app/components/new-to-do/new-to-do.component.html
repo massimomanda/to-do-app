@@ -1,1 +1,15 @@
-<p>new-to-do works!</p>
+<div>
+  <form [formGroup]="form" (ngSubmit)="addTask($event)">
+    <input
+      name="input"
+      [placeholder]="'Your task'"
+      formControlName="input"
+      type="text"
+    />
+    <select name="select" formControlName="select" id="">
+      <option value="Work">Work</option>
+      <option value="Life">Life</option>
+    </select>
+    <button type="submit">invia</button>
+  </form>
+</div>

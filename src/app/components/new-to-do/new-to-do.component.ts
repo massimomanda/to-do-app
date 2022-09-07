@@ -8,7 +8,7 @@ import { TaskService } from 'src/app/services/taskService/task.service';
   styleUrls: ['./new-to-do.component.css'],
 })
 export class NewToDoComponent implements OnInit {
-  constructor(private _fb: FormBuilder, private taskService: TaskService) {}
+  constructor(private _fb: FormBuilder, public taskService: TaskService) {}
 
   @Output('newTaskAdded') newTaskAdded = new EventEmitter();
 

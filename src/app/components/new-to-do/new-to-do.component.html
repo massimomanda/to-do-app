@@ -1,4 +1,5 @@
 <div>
+  <div (click)="taskService.formVisible = false" class="overlay"></div>
   <form [formGroup]="form" (ngSubmit)="addTask($event)">
     <input
       name="input"

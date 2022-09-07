@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { TaskService } from 'src/app/services/taskService/task.service';
 
 @Component({
@@ -13,7 +14,7 @@ export class TaskComponent implements OnInit {
   @Input('categoryColor') categoryColor!: string;
   @Output('editEmitter') editEmitter = new EventEmitter();
 
-  constructor(public taskService: TaskService) {}
+  constructor(public taskService: TaskService, public router:Router) {}
 
   ngOnInit(): void {}
 

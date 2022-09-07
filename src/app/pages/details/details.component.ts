@@ -59,4 +59,9 @@ export class DetailsComponent implements OnInit {
     console.log(this.TaskService.currentEditTask )
 
   }
+
+  addTask(){
+    this.TaskService.formVisible = true
+    this.TaskService.editMode = false
+  }
 }

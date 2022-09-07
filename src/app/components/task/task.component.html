@@ -4,5 +4,5 @@
     <span>&nbsp; {{ taskText }}</span>
   </div>
 
-  <button (click)="edit(taskText, category, $event)">EDIT</button>
+  <button *ngIf="!(router.url.includes('/home') || router.url.includes('/completed-tasks'))" (click)="edit(taskText, category, $event)">EDIT</button>
 </div>

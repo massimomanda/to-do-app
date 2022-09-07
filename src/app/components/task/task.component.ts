@@ -13,13 +13,17 @@ export class TaskComponent implements OnInit {
   @Input('category') category!: string;
   @Input('categoryColor') categoryColor!: string;
   @Output('editEmitter') editEmitter = new EventEmitter();
+  @Output('deleteEmitter') deleteEmitter = new EventEmitter();
 
-  constructor(public taskService: TaskService, public router:Router) {}
+  constructor(public taskService: TaskService, public router: Router) {}
 
   ngOnInit(): void {}
 
   // tasto edit emitta cose
   edit(text: string, category: string, event: any) {
-    this.editEmitter.emit({ text: text, category: category, event:event });
+    this.editEmitter.emit({ text: text, category: category, event: event });
+  }
+  deleteTask() {
+    this.deleteEmitter.emit();
   }
 }

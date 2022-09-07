@@ -3,6 +3,8 @@
     <input type="checkbox" (click)="taskService.checkTask(index)" />
     <span>&nbsp; {{ taskText }}</span>
   </div>
-
-  <button *ngIf="!(router.url.includes('/home') || router.url.includes('/completed-tasks'))" (click)="edit(taskText, category, $event)">EDIT</button>
+  <div class="icons">
+  <i *ngIf="!(router.url.includes('/home') || router.url.includes('/completed-tasks'))" (click)="edit(taskText, category, $event)" class="fa-solid fa-pencil"></i>
+  <i class="fa-solid fa-trash" (click)="deleteTask()"></i>
+  </div>
 </div>

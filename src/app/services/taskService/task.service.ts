@@ -79,5 +79,8 @@ export class TaskService {
      this.tasks.splice(i, 1, obj)
      console.log(this.tasks)
   }
+  deleteTask(i: any){
+    this.tasks.splice(i, 1)
+  }
   
 }

@@ -21,6 +21,7 @@
     *ngFor="let t of taskService.tasks; index as i"
     [taskText]="taskService.tasks[i].text"
     [index]="i"
+    (deleteEmitter)="onDeleteEmitter(i)"
   ></app-task>
 
   <div appThemetoggle class="theme-toggle">

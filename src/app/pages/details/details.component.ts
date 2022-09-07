@@ -64,4 +64,9 @@ export class DetailsComponent implements OnInit {
     this.TaskService.formVisible = true
     this.TaskService.editMode = false
   }
+
+  onDeleteEmitter(i:any){
+    this.TaskService.deleteTask(i)
+    this.TaskService.updateTasks()
+  }
 }

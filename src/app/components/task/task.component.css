@@ -6,3 +6,9 @@
     display: flex;
     justify-content: space-between;
 }
+.icons{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}

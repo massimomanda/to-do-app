@@ -2,8 +2,9 @@
   <h2>Completed Tasks</h2>
   <div *ngIf="taskService.completedTasks.length != 0">
     <app-task
-    *ngFor="let t of taskService.completedTasks"
+    *ngFor="let t of taskService.completedTasks; index as i"
     [taskText]="t.text"
+    (deleteEmitter)="onDeleteEmitter(i)"
   ></app-task>
   </div>
 

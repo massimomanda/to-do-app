@@ -18,4 +18,8 @@ export class HomeComponent implements OnInit {
     this.router.navigate([`/details/${c}`]);
     console.log(c);
   }
+  onDeleteEmitter(i:any){
+    this.taskService.deleteTask(i)
+    this.taskService.updateTasks()
+  }
 }

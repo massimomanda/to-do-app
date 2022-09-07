@@ -12,5 +12,9 @@ export class CompletedTasksComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  onDeleteEmitter(i:any){
+    this.taskService.completedTasks.splice(i, 1)
+    this.taskService.updateTasks()
+  }
 
 }

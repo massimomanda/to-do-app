@@ -74,4 +74,10 @@ export class TaskService {
       { name: 'Work', color: '#ffcdb2', tasksLength: this.workTasks.length },
     ];
   }
+
+  editTask(i:any, obj:any){
+     this.tasks.splice(i, 1, obj)
+     console.log(this.tasks)
+  }
+  
 }

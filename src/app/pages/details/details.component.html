@@ -9,14 +9,14 @@
       *ngIf="t.category == currentCategory"
       [taskText]="t.text"
       [category]="t.category"
-      (editEmitter)="onEditEmitter($event)"
+      (editEmitter)="onEditEmitter($event, i)"
       [index]="i"
     ></app-task>
     <app-task
       *ngIf="router.url.includes('All')"
       [taskText]="t.text"
       [category]="t.category"
-      (editEmitter)="onEditEmitter($event)"
+      (editEmitter)="onEditEmitter($event, i)"
       [index]="i"
     ></app-task>
   </div>

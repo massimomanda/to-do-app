@@ -48,13 +48,15 @@ export class DetailsComponent implements OnInit {
     this.getCategoryArray();
   }
 
-  onEditEmitter(task: any) {
+  onEditEmitter(task: any, i: any) {
     // variabile per attivare la modalitá di editing del task
     this.TaskService.editMode = true;
-
+    // console.log(i)
     this.TaskService.formVisible = true;
-    this.receivedText = task.text;
+    // this.receivedText = task.text;
     console.log('task', task);
-    this.TaskService.currentEditTask = task;
+    this.TaskService.currentEditTask ={ task: task, i: i};
+    console.log(this.TaskService.currentEditTask )
+
   }
 }

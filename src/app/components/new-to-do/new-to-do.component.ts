@@ -24,8 +24,8 @@ export class NewToDoComponent implements OnInit {
     // deve uscire solo se c`e` l`edit
     if (this.taskService.editMode) {
       this.form.setValue({
-        input: this.taskService.currentEditTask.text,
-        select: this.taskService.currentEditTask.category,
+        input: this.taskService.currentEditTask.task.text,
+        select: this.taskService.currentEditTask.task.category,
       });
     }
   }
@@ -47,6 +47,9 @@ export class NewToDoComponent implements OnInit {
       console.log(this.taskService.tasks);
     } else {
       this.taskService.formVisible = false;
+      this.taskService.editTask( this.taskService.currentEditTask.i, newTodo)
+      this.taskService.updateTasks()
+      this.taskService.editMode = false;
     }
   }
 }

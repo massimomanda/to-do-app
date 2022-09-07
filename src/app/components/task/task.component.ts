@@ -19,6 +19,6 @@ export class TaskComponent implements OnInit {
 
   // tasto edit emitta cose
   edit(text: string, category: string, event: any) {
-    this.editEmitter.emit({ text: text, category: category, event });
+    this.editEmitter.emit({ text: text, category: category, event:event });
   }
 }
